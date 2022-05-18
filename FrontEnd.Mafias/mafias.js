@@ -1,13 +1,16 @@
 import Vue from 'vue';
-import Calculator from './Calculator.vue';
+
+import App from './App.vue';
+import router from './router.js';
 
 window.eventBus = new Vue();
 
-window.createCalculator = function createCalculator(d, p) {
+window.createApp = function createApp(d, p) {
     new Vue({
         el: d,
+        router,
         render(h) {
-            return h(Calculator, { props: p });
+            return h(App, { props: p });
         }
     });
 };

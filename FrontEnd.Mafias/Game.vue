@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Game</h2>
     <input v-model="x" class="form-control" />
     <select v-model="op" class="form-control">
       <option>+</option>
@@ -12,10 +13,10 @@
     <input v-model="a" class="form-control" />
   </div>
 </template>
+
 <script>
 export default {
-  name: "Calculator",
-  props: [],
+  name: "Game",
   data() {
     return {
       x: "", y: "", op: "+", a: "",
@@ -40,9 +41,8 @@ export default {
       else if (self.op == "*") self.a = self.intX * self.intY;
       else if (self.op == "/") self.a = self.intX / self.intY;
     },
-  },
-  mounted() {
-    var self = this;
-  },
+  }
 };
 </script>
+
+<style lang="scss" scoped></style>
