@@ -11,29 +11,30 @@
 </template>
 
 <script>
-import firebase from 'firebase/compat/app';
-import initialize from './firebase.js';
-import 'firebase/compat/auth';
+import { signOut } from 'firebase/auth';
+//import firebase from 'firebase/app';
+//import 'firebase/auth';
+//import 'firebase/firestore';
+
+// v9 compat packages are API compatible with v8 code
+//import firebase from 'firebase/compat/app';
+//import 'firebase/compat/auth';
 //import 'firebase/compat/firestore';
 
 export default {
   methods: {
     logout() {
-      firebase
-        .auth()
-        .signOut()
+      signOut(this.$root.auth)
         .then(() => {
           alert("Successfully logged out");
           this.$router.push("/");
         })
         .catch((error) => {
+          console.log(error);
           alert(error.message);
           this.$router.push("/");
         });
     },
-  },
-  mounted() {
-    initialize(firebase);
   }
 };
 </script>

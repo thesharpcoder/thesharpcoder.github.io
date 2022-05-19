@@ -10,35 +10,30 @@
 </template>
 
 <script>
-import firebase from 'firebase/compat/app';
-import initialize from './firebase.js';
-import 'firebase/compat/auth';
-//import 'firebase/compat/firestore';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 export default {
   name: "Home",
   data() {
     return {
-      email: "",
-      password: "",
+      email: '', password: ''
     };
   },
   methods: {
     login() {
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
+      console.log(this.$router, this.$root.auth);
+      console.log('calling signInWithEmailAndPassword', this.email, this.password);
+      signInWithEmailAndPassword(this.$root.auth, this.email, this.password)
+        .then((userCredential) => {
+          //const user = userCredential.user;
           alert("Successfully logged in");
           this.$router.push("/game");
         })
         .catch((error) => {
+          console.log(error);
           alert(error.message);
         });
     },
-  },
-  mounted() {
-    initialize(firebase);
   }
 };
 </script>

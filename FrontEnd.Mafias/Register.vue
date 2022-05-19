@@ -9,28 +9,18 @@
   </div>
 </template>
 <script>
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
-import firebase from "firebase/compat/app";
-import initialize from './firebase.js';
-import "firebase/compat/auth";
-//import 'firebase/compat/firestore';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default {
   name: "Register",
   data() {
     return {
-      email: "",
-      password: "",
+      email: '', password: ''
     };
   },
   methods: {
     register() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
+      createUserWithEmailAndPassword(this.$root.auth, this.email, this.password)
         .then(() => {
           alert("Successfully registered! Please login.");
           this.$router.push("/");
@@ -38,10 +28,7 @@ export default {
         .catch((error) => {
           alert(error.message);
         });
-    },
-  },
-  mounted() {
-    initialize(firebase);
-  },
+    }
+  }
 };
 </script>

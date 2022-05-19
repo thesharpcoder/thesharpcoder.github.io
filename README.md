@@ -17,8 +17,12 @@ Vue based Calculator
 
 # Milestone 3
 
-Firebased Introduction
+Firebase Introduction
 
 - Vue Router
-- Firebased: User Registration + Authentication
+- Firebase: User Registration + Authentication
 - Calculator for only logged on Users
+
+# Milestone 4
+
+Showing Game Users
