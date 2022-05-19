@@ -1,12 +1,11 @@
 import Vue from 'vue';
 
 import router from './router.js';
-import auth from './firebase.js';
+import { auth, database } from './firebase.js';
 //import { onAuthStateChanged } from "firebase/auth";
 
 import App from './App.vue';
 
-console.log('Imported auth', auth);
 // var userLoggedIn = false;
 // onAuthStateChanged(auth, user => {
 //     if (user) {
@@ -42,7 +41,7 @@ window.createApp = function createApp(d, p) {
         router,
         data() {
             return {
-                auth
+                auth, database
             }
         },
         render(h) {

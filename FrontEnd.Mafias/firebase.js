@@ -9,12 +9,14 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 //import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBl9fP_syB_WMhq-YWa0HNJzdbOCNgvh7g",
   authDomain: "mafias-4950.firebaseapp.com",
+  databaseURL: "https://mafias-4950-default-rtdb.firebaseio.com/",
   projectId: "mafias-4950",
   storageBucket: "mafias-4950.appspot.com",
   messagingSenderId: "693639962961",
@@ -27,9 +29,10 @@ const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-console.log('getAuth', auth);
+// Get a reference to the database service
+const database = getDatabase(app);
 
-export default auth;
+export { auth, database };
 //export default app;
 // export default function initialize(firebase) {
 //   firebase.initializeApp(firebaseConfig);

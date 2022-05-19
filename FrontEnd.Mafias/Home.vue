@@ -21,8 +21,6 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.$router, this.$root.auth);
-      console.log('calling signInWithEmailAndPassword', this.email, this.password);
       signInWithEmailAndPassword(this.$root.auth, this.email, this.password)
         .then((userCredential) => {
           //const user = userCredential.user;
